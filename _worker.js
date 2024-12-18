@@ -21,13 +21,13 @@ export default {
 		const 网络备案 = env.BEIAN || `<a href='https://icp.gov.moe/'>萌ICP备-20070707号</a>`;
 		const 网页标题 = env.TITLE || 'BlogCDN 智能访问网关';
 		const 站点名称 = env.NAME || 'CMLiussss Blog';
-		if (url.pathname == '/ads.txt') {
+		if (url.pathname.toLowerCase() == '/ads.txt') {
 			return new Response(ads, {
 				headers: {
 					'content-type': 'text/plain;charset=UTF-8'
 				}
 			});
-		} else if (url.pathname == '/favicon.ico') {
+		} else if (url.pathname.toLowerCase() == '/favicon.ico') {
 			return fetch(网站图标);
 		} else {
 			// 先测速，不加载背景图片
