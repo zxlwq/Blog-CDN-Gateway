@@ -11,9 +11,10 @@
 ## 变量说明
 | 变量名 | 示例 | 备注 | 
 |--------|---------|-----|
-| URL | `https://blog.cmliussss.com#Cloudflare CDN`,`https://xn--1uto7rutmzjk.us.kg#备用地址` | 测速链接，链接标题用`#`做间隔 (支持多元素`换行`作间隔)| 
+| URL | `https://blog.cmliussss.com#Cloudflare CDN`,`https://xn--1uto7rutmzjk.us.kg#备用地址` | 测速链接，链接标题用`#`做间隔 (多元素`换行`作间隔)| 
 | ICO | `https://raw.cmliussss.com/favicon.ico` | 网站图标 | 
 | PNG | `https://raw.cmliussss.com/IMG_0038.png` | 网站头像 | 
+| IMG | `https://raw.cmliussss.com/keqing1080p.jpg` | 背景图片，多张图片将随机展示 (多元素`换行`作间隔) | 
 | NAME | `CMLiussss Blog` | 站点名称 |
 | TITLE | `BlogCDN 智能访问网关` | 网页标题 |
 | BEIAN | `<a href='https://icp.gov.moe/'>萌ICP备-20070707号</a>` | 网络备案 |
