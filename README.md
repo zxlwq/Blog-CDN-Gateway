@@ -18,6 +18,7 @@
 | NAME | `CMLiussss Blog` | 站点名称 |
 | TITLE | `BlogCDN 智能访问网关` | 网页标题 |
 | BEIAN | `<a href='https://icp.gov.moe/'>萌ICP备-20070707号</a>` | 网络备案 |
+| ADS | `google.com, pub-9350003957494520, DIRECT, f08c47fec0942fa0` | 网站 `/ads.txt`内容 |
 
 # 致谢
 我的脑洞、GPT
