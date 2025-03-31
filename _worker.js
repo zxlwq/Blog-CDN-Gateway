@@ -31,7 +31,7 @@ export default {
 			return fetch(网站图标);
 		} else {
 			// 先测速，不加载背景图片
-			let img = 'https://images.zxl.cc.ua/blog/1.webp'; // 默认图片
+			let img = 'https://images.zxl.cc.ua/blog/12.webp'; // 默认图片
 			if (env.IMG) {
 				const imgs = await ADD(env.IMG);
 				img = imgs[Math.floor(Math.random() * imgs.length)];
