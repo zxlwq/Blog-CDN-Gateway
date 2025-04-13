@@ -1,8 +1,8 @@
 let urls = [
 	'https://bloga.zxl.cc.ua#Cloudflare CDN',
-	'https://blogc.zxl.cc.ua#Fastly CDN',
+	'https://blog.zxlwq.dpdns.org#Fastly CDN',
 	'https://bloga.zxl.dedyn.io#Gcore CDN',
-	'https://blog.lqw.x10.bz#Vercel CDN',
+	'https://blogc.zxl.cc.ua#Vercel CDN',
 	'https://blog.lwq.hidns.vip.kg#备用地址'
 ];
 
