@@ -20,7 +20,7 @@ export default {
 		const 网站头像 = env.PNG || 'https://images.zxl.cc.ua/blog/1.webp';
 		const 网络备案 = env.BEIAN || `<a href='https://icp.gov.moe/'>萌ICP备-20070707号</a>`;
 		const 网页标题 = env.TITLE || 'BlogCDN 智能访问网关';
-		const 站点名称 = env.NAME || '科技-刘 Blog';
+		const 站点名称 = env.NAME || '科技-刘';
 		if (url.pathname.toLowerCase() == '/ads.txt') {
 			return new Response(ads, {
 				headers: {
