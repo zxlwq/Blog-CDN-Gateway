@@ -132,17 +132,28 @@ export default {
 					}
 			
 					h1::after {
-						content: '';
-						position: absolute;
-						bottom: 0;
-						left: 50%;
-						transform: translateX(-50%);
-						width: 60px;
-						height: 4px;
-						background: #6bdf8f;
-						border-radius: 2px;
+						content: '';                    /* 创建伪元素内容，空字符串表示不显示文字 */
+						position: absolute;             /* 绝对定位，相对于最近的相对定位父元素 */
+						bottom: 0;                      /* 距离父元素底部0像素，紧贴底部 */
+						left: 50%;                      /* 左边距离父元素左侧50%，用于居中定位 */
+						transform: translateX(-50%);    /* 向左移动自身宽度的50%，实现水平居中 */
+						width: 100px;                   /* 下划线宽度为100像素 */
+						height: 4px;                    /* 下划线高度为4像素 */
+						background: linear-gradient(90deg, #6bdf8f, #ffffff, #a7f3d0, #34d399, #10b981, #6bdf8f);
+						background-size: 200% 100%;     /* 背景尺寸为200%，用于流光动画 */
+						animation: flowingLight 2s linear infinite;  /* 流光动画效果 */
+						border-radius: 2px;             /* 圆角半径2像素，让下划线边角更圆润 */
 					}
 			
+					@keyframes flowingLight {
+						0% {
+							background-position: 200% 50%;
+						}
+						100% {
+							background-position: 0% 50%;
+						}
+					}
+
 					.description {
 						width: 100%;
 						padding: 0 15px;
