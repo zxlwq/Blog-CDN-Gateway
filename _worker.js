@@ -3,7 +3,7 @@ let urls = [
 	'https://fastly.blog.cmliussss.com#Fastly CDN',
 	'https://gcore.blog.cmliussss.com#Gcore CDN',
 	'https://vercel.blog.cmliussss.com#Vercel CDN',
-	'https://xn--1uto7rutmzjk.us.kg#备用地址'
+	'https://netlify.blog.cmliussss.com#Netlify CDN'
 ];
 
 export default {
@@ -307,7 +307,13 @@ export default {
 							};
 			
 							xhr.onerror = function () {
-								resolve({ url, latency: '请求失败' });
+								const latency = Date.now() - start;
+								// 如果状态码为0，表示请求失败但可能是跨域问题
+								if (xhr.status === 0 && latency > 10 && latency < timeout) {
+									resolve({ url, latency });
+								} else {
+									resolve({ url, latency: '请求失败' });
+								}
 							};
 			
 							xhr.send();
