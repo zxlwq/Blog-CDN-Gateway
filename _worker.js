@@ -1,9 +1,9 @@
 let urls = [
-	'https://bloga.zxl.cc.ua#Cloudflare CDN',
-	'https://blog.zxlwq.dpdns.org#Fastly CDN',
-	'https://bloga.zxl.dedyn.io#Gcore CDN',
-	'https://blogc.zxl.cc.ua#Vercel CDN',
-	'https://blog.lwq.hidns.vip.kg#备用地址'
+	'https://blog.zxlwq.dpdns.org#Cloudflare CDN',
+	'https://blogc.zxlwq.dpdns.org#Fastly CDN',
+	'https://blog.lwq.hidns.vip#Gcore CDN',
+	'https://blog.lwq.ip-ddns.com#Vercel CDN',
+	'https://bloga.zxl.dedyn.io#备用地址'
 ];
 
 export default {
@@ -16,8 +16,8 @@ export default {
 		if (env.URL) urls = await ADD(env.URL);
 		
 		const ads = env.ADS || 'google.com, pub-9350003957494520, DIRECT, f08c47fec0942fa0';
-		const 网站图标 = env.ICO || 'https://images.zxl.cc.ua/blog/1.webp';
-		const 网站头像 = env.PNG || 'https://images.zxl.cc.ua/blog/1.webp';
+		const 网站图标 = env.ICO || 'https://images.zxlwq.dpdns.org/blog/1.webp';
+		const 网站头像 = env.PNG || 'https://images.zxlwq.dpdns.org/blog/1.webp';
 		const 网络备案 = env.BEIAN || `<a href='https://icp.gov.moe/'>萌ICP备-20070707号</a>`;
 		const 网页标题 = env.TITLE || 'BlogCDN 智能访问网关';
 		const 站点名称 = env.NAME || '科技-刘';
@@ -31,7 +31,7 @@ export default {
 			return fetch(网站图标);
 		} else {
 			// 先测速，不加载背景图片
-			let img = 'https://images.zxl.cc.ua/blog/12.webp'; // 默认图片
+			let img = 'https://images.zxlwq.dpdns.org/blog/12.webp'; // 默认图片
 			if (env.IMG) {
 				const imgs = await ADD(env.IMG);
 				img = imgs[Math.floor(Math.random() * imgs.length)];
