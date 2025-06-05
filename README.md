@@ -1,5 +1,4 @@
 # **BlogCDN智能访问网关** Blog-CDN-Gateway
-![Blog-CDN-Gateway](./Blog-CDN.png)
 一个轻量级的CDN智能网关系统，具有以下特点：
 - 🚀 多CDN线路智能测速
 - 🔄 自动跳转到最快节点
