@@ -16,11 +16,12 @@ export default {
 		if (env.URL) urls = await ADD(env.URL);
 		
 		const ads = env.ADS || 'google.com, pub-9350003957494520, DIRECT, f08c47fec0942fa0';
-		const 网站图标 = env.ICO || 'https://images.zxlwq.dpdns.org/blog/1.webp';
-		const 网站头像 = env.PNG || 'https://images.zxlwq.dpdns.org/blog/1.webp';
+		const 网站图标 = env.ICO || '/logo.png';  // 修改这里
+		const 网站头像 = env.PNG || '/logo.png'; // 修改这里
 		const 网络备案 = env.BEIAN || `<a href='https://icp.gov.moe/'>萌ICP备-20070707号</a>`;
 		const 网页标题 = env.TITLE || 'BlogCDN 智能访问网关';
 		const 站点名称 = env.NAME || '科技-刘';
+
 		if (url.pathname.toLowerCase() == '/ads.txt') {
 			return new Response(ads, {
 				headers: {
@@ -31,7 +32,7 @@ export default {
 			return fetch(网站图标);
 		} else {
 			// 先测速，不加载背景图片
-			let img = 'https://images.zxlwq.dpdns.org/blog/12.webp'; // 默认图片
+			let img = '/favicon.jpg'; // 默认背景图改为这里
 			if (env.IMG) {
 				const imgs = await ADD(env.IMG);
 				img = imgs[Math.floor(Math.random() * imgs.length)];
@@ -147,7 +148,7 @@ export default {
 						width: 100%;
 						padding: 0 15px;
 						margin-bottom: 15px;
-						font-weight: 600;  // 添加这一行来加粗文字
+						font-weight: 600;  /* 加粗文字 */
 					}
 			
 					ul {
@@ -246,141 +247,47 @@ export default {
 				<a href="https://github.com/cmliu/Blog-CDN-Gateway" target="_blank" class="github-corner" aria-label="View source on Github">
 					<svg viewBox="0 0 250 250" aria-hidden="true">
 						<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-						<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-						<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+						<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" class="octo-arm"></path>
 					</svg>
 				</a>
 				<div class="container">
 					<div class="logo-container">
-						<img class="logo" src="${网站头像}" alt="Logo">
+						<img src="${网站头像}" alt="Logo" class="logo" />
 					</div>
-					<h1>${网页标题}</h1>
-					<ul class="description" id="urls"></ul>
-					<div class="beian-info" style="text-align: center; font-size: 13px;">
-						${网络备案}
-					</div>
+					<h1>${站点名称}</h1>
+					<div class="description">智能多线路访问代理，提升访问速度和稳定性</div>
+					<ul id="url-list">
+						${urls
+							.map((url) => {
+								const [link, name] = url.split('#');
+								return `<li><a href="${link}" target="_blank" rel="nofollow noreferrer noopener">${name || link}</a></li>`;
+							})
+							.join('')}
+					</ul>
+					<div class="beian-info">${网络备案}</div>
 				</div>
-				<script>
-					const urls = ${JSON.stringify(urls)};
-					
-					// 动态生成URL列表
-					const ul = document.getElementById("urls");
-					urls.forEach((url, index) => {
-						const [testUrl, name] = url.split('#');
-						const li = document.createElement("li");
-						li.id = \`result\${index}\`;
-						li.innerHTML = \`\${name} <span id="latency\${index}">测速中...</span>\`;
-						ul.appendChild(li);
-					});
-			
-					const timeout = 3000;
-			
-					function testLatency(url) {
-						return new Promise((resolve) => {
-							const start = Date.now();
-							const xhr = new XMLHttpRequest();
-							xhr.open('HEAD', url, true);
-							xhr.timeout = timeout;
-			
-							xhr.onload = function () {
-								const latency = Date.now() - start;
-								if (xhr.status === 200) {
-									resolve({ url, latency });
-								} else {
-									resolve({ url, latency: \`状态码: \${xhr.status}\` });
-								}
-							};
-			
-							xhr.ontimeout = function () {
-								resolve({ url, latency: \`响应超时 \${timeout}ms\` });
-							};
-			
-							xhr.onerror = function () {
-								resolve({ url, latency: '请求失败' });
-							};
-			
-							xhr.send();
-						});
-					}
-			
-					function getLatencyColor(latency) {
-						if (latency <= 100) return '#22c55e';
-						if (latency <= 200) return '#84cc16';
-						if (latency <= 500) return '#eab308';
-						if (latency <= 1000) return '#f97316';
-						if (latency > 1000) return '#ef4444';
-						return '#dc2626';
-					}
-			
-					// 只需要修改 runTests 函数中处理最快结果的部分:
-
-					async function runTests() {
-						const results = await Promise.all(urls.map(url => {
-							const [testUrl, name] = url.split('#');
-							return testLatency(testUrl).then(result => ({
-								...result,
-								name
-							}));
-						}));
-
-						results.forEach((result, index) => {
-							const li = document.getElementById(\`result\${index}\`);
-							const latencySpan = document.getElementById(\`latency\${index}\`);
-							if (typeof result.latency === 'number') {
-								latencySpan.textContent = \`\${result.latency}ms\`;
-								latencySpan.style.color = getLatencyColor(result.latency);
-							} else {
-								latencySpan.textContent = result.latency;
-								latencySpan.style.color = '#dc2626';
-							}
-						});
-
-						const validResults = results.filter(result => typeof result.latency === 'number');
-						if (validResults.length > 0) {
-							const fastest = validResults.reduce((prev, current) => 
-								(prev.latency < current.latency ? prev : current), validResults[0]);
-
-							results.forEach((result, index) => {
-								if (result.name === fastest.name) {
-									const li = document.getElementById(\`result\${index}\`);
-									li.style.background = 'rgba(107, 223, 143, 0.3)';
-									li.style.border = '2px solid rgba(107, 223, 143, 0.5)';
-									li.style.transform = 'translateX(5px)';
-								}
-							});
-
-							const currentPath = '${path}';
-							const currentParams = '${params}';
-							const redirectUrl = fastest.url + currentPath + currentParams;
-							window.location.href = redirectUrl;
-						}
-					}
-			
-					window.onload = runTests;
-				</script>
 			</body>
 			</html>
 			`;
 
 			return new Response(html, {
-				headers: { 'content-type': 'text/html;charset=UTF-8' }
+				headers: {
+					'content-type': 'text/html;charset=UTF-8',
+				}
 			});
 		}
-	}
+	},
 };
 
-// 辅助函数：将env.URLS字符串处理成数组
-async function ADD(envadd) {
-	// 将制表符、双引号、单引号和换行符都替换为逗号
-	// 然后将连续的多个逗号替换为单个逗号
-	var addtext = envadd.replace(/[	|"'\r\n]+/g, ',').replace(/,+/g, ',');
-	
-	// 删除开头和结尾的逗号（如果有的话）
-	if (addtext.charAt(0) == ',') addtext = addtext.slice(1);
-	if (addtext.charAt(addtext.length - 1) == ',') addtext = addtext.slice(0, addtext.length - 1);
-	
-	// 使用逗号分割字符串，得到地址数组
-	const add = addtext.split(',');
-
-	return add;
+async function ADD(envUrl) {
+	let urlList = [];
+	try {
+		if (envUrl) {
+			const urls = envUrl.split('\n').filter((line) => line.trim() !== '');
+			urlList = urls;
+		}
+	} catch (e) {
+		// ignore
+	}
+	return urlList;
 }
