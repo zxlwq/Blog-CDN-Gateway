@@ -3,8 +3,7 @@ let urls = [
 	'https://zxlwq.netlify.app#Fastly CDN',
 	'https://blog.lwq.hidns.vip#Gcore CDN',
 	'https://blogc.zxlwq.dpdns.org#Vercel CDN',
-	'https://zxlwq-hexo.hf.space#HF CDN',
-	'https://bloga.zxl.dedyn.io#备用地址'
+	'https://zxlwq-hexo.hf.space#备用地址'
 ];
 
 export default {
