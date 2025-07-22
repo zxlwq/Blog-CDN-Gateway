@@ -16,8 +16,8 @@ export default {
 		if (env.URL) urls = await ADD(env.URL);
 		
 		const ads = env.ADS || 'google.com, pub-9350003957494520, DIRECT, f08c47fec0942fa0';
-		const 网站图标 = env.ICO || 'https://bloga.zxlwq.dpdns.org/jpg/1.webp';
-		const 网站头像 = env.PNG || 'https://bloga.zxlwq.dpdns.org/jpg/1.webp';
+		const 网站图标 = env.ICO || 'image/logo.png';
+		const 网站头像 = env.PNG || 'image/logo.png';
 		const 网络备案 = env.BEIAN || `<a href='https://icp.gov.moe/'>萌ICP备-20070707号</a>`;
 		const 网页标题 = env.TITLE || 'BlogCDN 智能访问网关';
 		const 站点名称 = env.NAME || '科技刘-Blog';
@@ -31,7 +31,7 @@ export default {
 			return fetch(网站图标);
 		} else {
 			// 先测速，不加载背景图片
-			let img = 'https://bloga.zxlwq.dpdns.org/jpg/favicon.webp'; // 默认图片
+			let img = 'image/background.jpeg'; // 默认图片
 			if (env.IMG) {
 				const imgs = await ADD(env.IMG);
 				img = imgs[Math.floor(Math.random() * imgs.length)];
