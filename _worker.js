@@ -1,6 +1,7 @@
 let urls = [
 	'https://blog.zxlwq.dpdns.org#Cloudflare CDN',
-	'https://zxlwq.netlify.app#Fastly CDN',
+	'https://blog.bloga.qzz.io#EdgeOne CDN',
+	'https://zxlwq.netlify.app#netlify CDN',
 	'https://blog.lwq.hidns.vip#Gcore CDN',
 	'https://blogc.zxlwq.dpdns.org#Vercel CDN',
 	'https://blog.zxlwq.eu.cc#备用地址'
