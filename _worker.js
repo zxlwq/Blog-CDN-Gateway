@@ -1,10 +1,10 @@
 let urls = [
 	'https://blog.zxlwq.dpdns.org#Cloudflare CDN',
-	'https://blog.bloga.qzz.io#EdgeOne CDN',
+	'https://blog.zxlwq.eu.cc#EdgeOne CDN',
+	'https://blogc.zxlwq.dpdns.org#Vercel CDN',
 	'https://zxlwq.netlify.app#netlify CDN',
 	'https://blog.lwq.hidns.vip#Gcore CDN',
-	'https://blogc.zxlwq.dpdns.org#Vercel CDN',
-	'https://blog.zxlwq.eu.cc#备用地址'
+	'https://blog-919.web.app#备用地址'
 ];
 
 export default {
@@ -402,3 +402,4 @@ async function ADD(envadd) {
 
 	return add;
 }
+
