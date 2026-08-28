@@ -5,7 +5,7 @@ const DEFAULT_CONFIG = {
 		'https://blog.zxlwq.eu.cc#EdgeOne CDN',
 		'https://blogc.zxlwq.dpdns.org#Vercel CDN',
 		'https://zxlwq.netlify.app#netlify CDN',
-		'https://zxlwq-9x8e.onrender.com#Render CDN',
+		'https://blog-8e7i.onrender.com#Render CDN',
 	    'https://blog-919.web.app#备用地址'
 	],
 	// /ads.txt 返回内容。
