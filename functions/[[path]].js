@@ -6,7 +6,8 @@ const DEFAULT_CONFIG = {
 		'https://blogc.zxlwq.dpdns.org#Vercel CDN',
 		'https://zxlwq.netlify.app#netlify CDN',
 		'https://blog-8e7i.onrender.com#Render CDN',
-	    'https://blog-919.web.app#备用地址'
+	    'https://blog-919.web.app#备用地址',
+		'https://winter-sea-fnzcggxq.sin.unikraft.app#备用地址'
 	],
 	// /ads.txt 返回内容。
 	ADS: 'google.com, pub-9350003957494520, DIRECT, f08c47fec0942fa0',
