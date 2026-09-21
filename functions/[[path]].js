@@ -1,13 +1,13 @@
 const DEFAULT_CONFIG = {
 	// CDN 测速地址，格式为 "访问地址#显示名称"。
 	URLS: [
-		'https://blog.zxlwq.dpdns.org#Cloudflare CDN',
-		'https://blog.zxlwq.eu.cc#EdgeOne CDN',
-		'https://blogc.zxlwq.dpdns.org#Vercel CDN',
-		'https://zxlwq.netlify.app#netlify CDN',
-		'https://blog-8e7i.onrender.com#Render CDN',
-	    'https://blog-919.web.app#备用地址',
-		'https://winter-sea-fnzcggxq.sin.unikraft.app#备用地址'
+		'https://blog.zxlwq.dpdns.org#Cloudflare',
+		'https://blog.zxlwq.eu.cc#EdgeOne',
+		'https://blogc.zxlwq.dpdns.org#Vercel',
+		'https://zxlwq.netlify.app#netlify',
+		'https://blog-8e7i.onrender.com#Render',
+	    'https://blog-919.web.app#Hosting',
+		'https://blog-svc-ghowwcwj.sin.unikraft.app#Unikraft'
 	],
 	// /ads.txt 返回内容。
 	ADS: 'google.com, pub-9350003957494520, DIRECT, f08c47fec0942fa0',
